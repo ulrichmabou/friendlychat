@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
 
 class ChatMessage extends StatelessWidget {
-  ChatMessage({this.sender, this.message});
+  ChatMessage({this.sender, this.text});
 
   final String sender;
-  final String message;
+  final String text;
 
   @override
   Widget build(BuildContext context) {
@@ -28,7 +28,7 @@ class ChatMessage extends StatelessWidget {
               ),
               Container(
                 margin: EdgeInsets.only(top: 5.0),
-                child: Text(message),
+                child: Text(text),
               ),
             ],
           ),

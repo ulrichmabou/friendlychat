@@ -1,15 +1,10 @@
 import 'package:flutter/material.dart';
+import 'package:friendlychat/widgets/messages_list.dart';
 import 'package:friendlychat/widgets/text_composer.dart';
-import 'package:friendlychat/widgets/chat_message.dart';
+import 'package:provider/provider.dart';
+import 'package:friendlychat/models/message_data.dart';
 
-//const String _name = 'Ulrich';
-
-class ChatScreen extends StatefulWidget {
-  @override
-  _ChatScreenState createState() => _ChatScreenState();
-}
-
-class _ChatScreenState extends State<ChatScreen> {
+class ChatScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -18,10 +13,7 @@ class _ChatScreenState extends State<ChatScreen> {
       ),
       body: Column(
         children: <Widget>[
-          ChatMessage(
-            sender: 'Ulrich',
-            message: 'first message from Ulrich',
-          ),
+          MessagesList(),
           TextComposer(),
         ],
       ),

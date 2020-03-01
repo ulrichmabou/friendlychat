@@ -1,19 +1,14 @@
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
+import 'package:friendlychat/models/message_data.dart';
 
-class TextComposer extends StatefulWidget {
-  @override
-  _TextComposerState createState() => _TextComposerState();
-}
-
-class _TextComposerState extends State<TextComposer> {
+class TextComposer extends StatelessWidget {
   final TextEditingController _textController = TextEditingController();
-
-  void _handleSubmitted(String text) {
-    _textController.clear();
-  }
 
   @override
   Widget build(BuildContext context) {
+    String newMessageText;
+
     return IconTheme(
       data: IconThemeData(color: Theme.of(context).accentColor),
       child: Container(
@@ -23,7 +18,9 @@ class _TextComposerState extends State<TextComposer> {
             Flexible(
               child: TextField(
                 controller: _textController,
-                onSubmitted: _handleSubmitted,
+                onChanged: (newText) {
+                  newMessageText = newText;
+                },
                 decoration:
                     InputDecoration.collapsed(hintText: 'Send a message'),
               ),
@@ -31,9 +28,12 @@ class _TextComposerState extends State<TextComposer> {
             Container(
               margin: EdgeInsets.symmetric(horizontal: 4.0),
               child: IconButton(
-                icon: Icon(Icons.send),
-                onPressed: () => _handleSubmitted(_textController.text),
-              ),
+                  icon: Icon(Icons.send),
+                  onPressed: () {
+                    _textController.clear();
+                    Provider.of<MessageData>(context)
+                        .addMessage(newMessageText);
+                  }),
             ),
           ],
         ),
