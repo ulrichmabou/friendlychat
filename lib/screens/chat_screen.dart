@@ -1,5 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:friendlychat/widgets/text_composer.dart';
+import 'package:friendlychat/widgets/chat_message.dart';
+
+//const String _name = 'Ulrich';
 
 class ChatScreen extends StatefulWidget {
   @override
@@ -13,7 +16,15 @@ class _ChatScreenState extends State<ChatScreen> {
       appBar: AppBar(
         title: Text('FriendlyChat'),
       ),
-      body: TextComposer(),
+      body: Column(
+        children: <Widget>[
+          ChatMessage(
+            sender: 'Ulrich',
+            message: 'first message from Ulrich',
+          ),
+          TextComposer(),
+        ],
+      ),
     );
   }
 }
