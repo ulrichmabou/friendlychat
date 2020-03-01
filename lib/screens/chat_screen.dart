@@ -13,7 +13,9 @@ class ChatScreen extends StatelessWidget {
       ),
       body: Column(
         children: <Widget>[
-          MessagesList(),
+          Flexible(
+            child: MessagesList(),
+          ),
           TextComposer(),
         ],
       ),

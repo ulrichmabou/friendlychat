@@ -8,13 +8,15 @@ class MessagesList extends StatelessWidget {
   Widget build(BuildContext context) {
     return Consumer<MessageData>(
       builder: (context, messageData, child) {
-        return ListView.builder(itemBuilder: (context, index) {
-          final message = messageData.messages[index];
-          return ChatMessage(
-            sender: 'Ulrich',
-            text: message.text,
-          );
-        });
+        return ListView.builder(
+          itemBuilder: (context, index) {
+            final message = messageData.messages[index];
+            return ChatMessage(
+              text: message.text,
+            );
+          },
+          itemCount: messageData.messageCount,
+        );
       },
     );
   }

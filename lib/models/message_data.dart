@@ -4,8 +4,8 @@ import 'dart:collection';
 
 class MessageData extends ChangeNotifier {
   List<ChatMessage> _messages = [
-    ChatMessage(sender: 'Ulrich', text: 'Hello Joel'),
-    ChatMessage(sender: 'Joel', text: 'Hello Ulrich'),
+    ChatMessage(text: 'Hello Joel'),
+    ChatMessage(text: 'Hello Ulrich'),
   ];
 
   UnmodifiableListView<ChatMessage> get messages {

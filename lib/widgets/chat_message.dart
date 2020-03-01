@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 
 class ChatMessage extends StatelessWidget {
-  ChatMessage({this.sender, this.text});
+  ChatMessage({this.text});
 
-  final String sender;
+//  final String sender;
   final String text;
 
   @override
@@ -16,14 +16,14 @@ class ChatMessage extends StatelessWidget {
           Container(
             margin: EdgeInsets.only(right: 16.0),
             child: CircleAvatar(
-              child: Text(sender[0]),
+              child: Text('U'),
             ),
           ),
           Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: <Widget>[
               Text(
-                sender,
+                'Ulrich',
                 style: Theme.of(context).textTheme.subhead,
               ),
               Container(
